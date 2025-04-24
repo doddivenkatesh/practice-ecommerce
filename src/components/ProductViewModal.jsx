@@ -1,20 +1,7 @@
 import { Button, Dialog, DialogPanel, DialogTitle } from '@headlessui/react';
 
-function ProductViewModal({ open , setOpen, product, isAvailable }) {
-  const {
-    id ,
-    productName,
-    image,
-    description,
-    quantity ,
-    price ,
-    discount ,
-    specialPrice,
-  } = product ;
-
-  const handleClickOpen = () =>{
-    setOpen(true);
-  }
+function ProductViewModal({ open, setOpen, product, isAvailable }) {
+  const {id,productName,image,description,quantity, price,discount,specialPrice} = product;
   return (
     <>
       <Button
@@ -34,17 +21,25 @@ function ProductViewModal({ open , setOpen, product, isAvailable }) {
               <DialogTitle as="h3" className="text-base/7 font-medium text-white">
                 {productName}
               </DialogTitle>
-              <p className="mt-2 text-sm/6 text-white/50">
-                {description}
-              </p>
-              <div className="mt-4">
-                <Button
-                  className="inline-flex items-center gap-2 rounded-md bg-gray-700 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-600 data-[focus]:outline-1 data-[focus]:outline-white data-[open]:bg-gray-700"
-                  onClick={() => setOpen(false)}
-                >
-                  Got it, thanks!
-                </Button>
-              </div>
+              {isAvailable ? (
+                <>
+                  <p className="mt-2 text-sm/6 text-white/50">
+                    {description}
+                  </p>
+                  <div className="mt-4">
+                    <Button
+                      className="inline-flex items-center gap-2 rounded-md bg-gray-700 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-600 data-[focus]:outline-1 data-[focus]:outline-white data-[open]:bg-gray-700"
+                      onClick={() => setOpen(false)}
+                    >
+                      Got it, thanks!
+                    </Button>
+                  </div>
+                </>
+              ) : (
+                <p className="mt-2 text-sm/6 text-red-500">
+                  This product is currently unavailable.
+                </p>
+              )}
             </DialogPanel>
           </div>
         </div>
