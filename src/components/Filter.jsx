@@ -109,7 +109,7 @@ const Filter = () => {
                 </FormControl>
 
                 {/* SORT BUTTON & CLEAR FILTER */}
-             {/*    <Tooltip title="Sorted by price: asc">
+               <Tooltip title="Sorted by price: asc">
                     <Button variant="contained" 
                         onClick={toggleSortOrder}
                         color="primary" 
@@ -129,8 +129,7 @@ const Filter = () => {
                 >
                     <FiRefreshCw className="font-semibold" size={16}/>
                     <span className="font-semibold">Clear Filter</span>
-                </button>*/}
-            </div>
+                </button>            </div>
         </div>
     );
 }
